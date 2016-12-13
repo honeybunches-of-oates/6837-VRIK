@@ -14,6 +14,8 @@ public class TrackBetweenObjects : MonoBehaviour {
 	Vector3 startLocalPos;
 
 	public Vector3 influence = new Vector3 (.25f, .25f, .15f);
+    public float yRotInfluence;
+    public float zRotInfluence;
 	public float zRotMaxDegrees = 60f;
 	public float yRotMaxDegrees = 45f;
 
@@ -42,7 +44,7 @@ public class TrackBetweenObjects : MonoBehaviour {
 
 		//Debug.Log ("Rotating: " + new Vector3 (0, angleForYRot * Mathf.Rad2Deg, angleForZRot * Mathf.Rad2Deg).ToString ());
 
-		shoulderTarget.localRotation = (Quaternion.Euler(new Vector3(0, angleForYRot * Mathf.Rad2Deg, angleForZRot * Mathf.Rad2Deg)));
+		shoulderTarget.localRotation = (Quaternion.Euler(new Vector3(0, angleForYRot * Mathf.Rad2Deg * yRotInfluence, angleForZRot * Mathf.Rad2Deg * zRotInfluence)));
 		shoulderTarget.localPosition = tempPos;
 	}
 
